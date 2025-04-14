@@ -1,5 +1,7 @@
 
+import Frequently from "../components/Home/Frequently/Frequently";
 import Idea from "../components/Home/Idea/Idea";
+import Review_slider from "../components/Home/Review_slider/Review_slider";
 import Banner from "../sheard/Banner";
 import Mission from "./Mission/Mission";
 import OurTeam from "./Our-team/Our-team";
@@ -14,7 +16,8 @@ const AboutUs = () => {
       <Idea/>
       <Mission/>
       <OurTeam/>
-      
+      <Review_slider/>
+      <Frequently/>
     </div>
   );
 };
