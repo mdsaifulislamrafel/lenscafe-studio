@@ -1,4 +1,4 @@
-import Banner from "../../sheard/Banner";
+import Banner from "../../shared/Banner";
 import OurWork from "./OurWork/OurWork";
 
 const Work = () => {

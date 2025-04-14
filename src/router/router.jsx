@@ -4,6 +4,8 @@ import Home from "../components/Home/Home";
 import AboutUs from "../AboutUs/AboutUs";
 import Services from "../components/Services/Services";
 import Work from "../components/Work/Work";
+import Gallery from "../components/Gallery/Gallery";
+import ContactForm from "../components/contact-us/ContactForm";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
       {
         path: "/work",
         element: <Work/>
+      },
+      {
+        path: "/gallery",
+        element: <Gallery/>
+      },
+      {
+        path: "/contact-us",
+        element: <ContactForm/>
       }
     ],
   },

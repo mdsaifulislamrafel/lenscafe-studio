@@ -2,7 +2,7 @@
 import Frequently from "../components/Home/Frequently/Frequently";
 import Idea from "../components/Home/Idea/Idea";
 import Review_slider from "../components/Home/Review_slider/Review_slider";
-import Banner from "../sheard/Banner";
+import Banner from "../shared/Banner";
 import Mission from "./Mission/Mission";
 import OurTeam from "./Our-team/Our-team";
 
