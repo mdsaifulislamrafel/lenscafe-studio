@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    background-color: #f1f0ee;
+  }
+
+  .button_gradeint {
+    @apply bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045];
+  }
+
+  .button_style {
+    @apply px-6 py-3 flex gap-4 items-center button_gradeint hover:opacity-90 transition-opacity rounded-md text-white duration-500;
+  }
+
+  .button_style:hover .button_icon {
+    background-color: black;
+    color: white;
+    transform: translateX(10px);
+  }
+
+  .banner {
+    background-image: url("/images/banner_bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .our-works {
+    background-image: url("/images/our_works.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .our-team {
+    background-image: url("/images/Header.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .idea_section_bg {
+    background: rgb(241, 223, 221);
+    background: linear-gradient(
+      90deg,
+      rgba(241, 223, 221, 1) 1%,
+      rgba(234, 200, 187, 1) 19%,
+      rgba(242, 191, 186, 1) 48%,
+      rgba(222, 200, 220, 1) 91%,
+      rgba(241, 223, 221, 1) 100%
+    );
+  }
+
+  /* mar quee container overflow issue */
+  .rfm-marquee-container {
+    overflow-x: hidden;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0.4rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #833AB4;
+  opacity: 0.5;
+  border-radius: 1rem;
+  transition: all 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9d3adf;
+  opacity: 1;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
