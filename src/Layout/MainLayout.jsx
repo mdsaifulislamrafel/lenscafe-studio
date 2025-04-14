@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import ChatSystemIcon from "../components/social-media-icon/social-media-icon";
 
 const MainLayout = () => {
   return (
@@ -10,6 +11,7 @@ const MainLayout = () => {
         <Outlet />
       </div>
       <Footer/>
+      <ChatSystemIcon/>
     </div>
   );
 };

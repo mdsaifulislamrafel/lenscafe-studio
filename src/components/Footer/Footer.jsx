@@ -163,7 +163,7 @@ const Footer = () => {
       {/* Copyright */}
       <div className="border-t border-gray-800 mt-12 py-6 text-center">
         <p className="text-sm text-gray-400">
-          © 2024 Lenscafe. All rights reserved.
+          © {new Date().getFullYear()} Lenscafe. All rights reserved.
         </p>
       </div>
     </footer>
