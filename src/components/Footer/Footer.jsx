@@ -18,9 +18,9 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm text-[#D3D0CE] max-w-sm leading-6 text-center md:text-start">
-              Leanscafe is a separate business unite (SBU) of Comjagat
+              LeansCafe is a separate business unite (SBU) of Comjagat
               Technologies. As your devoted digital marketing solution partner,
-              Leanscafe does not just offer a suite of integrated solutions – it
+              LeansCafe does not just offer a suite of integrated solutions – it
               becomes the pulsating rhythm of your digital aspirations.
             </p>
             <div className="flex *:text-[#D3D0CE] items-center justify-center md:justify-start space-x-4 pt-4">
@@ -163,7 +163,7 @@ const Footer = () => {
       {/* Copyright */}
       <div className="border-t border-gray-800 mt-12 py-6 text-center">
         <p className="text-sm text-gray-400">
-          © {new Date().getFullYear()} Lenscafe. All rights reserved.
+          © {new Date().getFullYear()} LensCafe. All rights reserved.
         </p>
       </div>
     </footer>
