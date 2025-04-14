@@ -1,7 +1,8 @@
 import { CircleX } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const MobileNavigation = ({ setOpenMobileNav, openMobileNav, navigation }) => {
-  const pathname = window.location.pathname;
+  const { pathname } = useLocation();
 
   return (
     <div
@@ -13,28 +14,33 @@ const MobileNavigation = ({ setOpenMobileNav, openMobileNav, navigation }) => {
         <CircleX onClick={() => setOpenMobileNav(!openMobileNav)} />
         <img width={70} height={70} alt="logo" src="/logo.svg" />
       </div>
+
       <ul className="flex flex-col gap-6 *:py-3 mt-4 *:text-center duration-100">
         {navigation.map((item, idx) => (
-          <a
-            key={idx}
-            href={item.href}
-            onClick={() => setOpenMobileNav(false)}
-            className={`${
-              pathname === item.href
-                ? "bg-white font-semibold"
-                : "text-[#B4AFAC] hover:text-white"
-            }`}
-          >
-            <li>{item.name}</li>
-          </a>
+          <li key={idx}>
+            <Link
+              to={item.href}
+              onClick={() => setOpenMobileNav(false)}
+              className={`block ${
+                pathname === item.href
+                  ? "bg-white font-semibold"
+                  : "text-[#B4AFAC] hover:text-white"
+              }`}
+            >
+              {item.name}
+            </Link>
+          </li>
         ))}
-        <a href="/contact-us">
-          <div className="flex items-center rounded-md transition-all p-[1px] duration-300 overflow-hidden">
-            <button className="hover:button_gradeint duration-500 w-full h-full text-white rounded-md px-4 py-2">
-              Contact Us
-            </button>
-          </div>
-        </a>
+
+        <li>
+          <Link to="/contact-us" onClick={() => setOpenMobileNav(false)}>
+            <div className="flex items-center rounded-md transition-all p-[1px] duration-300 overflow-hidden">
+              <button className="hover:button_gradeint duration-500 w-full h-full text-white rounded-md px-4 py-2">
+                Contact Us
+              </button>
+            </div>
+          </Link>
+        </li>
       </ul>
     </div>
   );
