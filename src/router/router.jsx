@@ -6,6 +6,7 @@ import Services from "../components/Services/Services";
 import Work from "../components/Work/Work";
 import Gallery from "../components/Gallery/Gallery";
 import ContactForm from "../components/contact-us/ContactForm";
+import Login from "../components/Login/Login";
 
 export const router = createBrowserRouter([
   {
@@ -37,5 +38,9 @@ export const router = createBrowserRouter([
         element: <ContactForm/>
       }
     ],
+  },
+  {
+    path: "/login",
+    element: <Login/>
   },
 ]);
