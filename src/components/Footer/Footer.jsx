@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-5 justify-between gap-8">
           {/* Logo and Description */}
           <div className="space-y-4 md:col-span-2">
-            <Link to="/" className="flex items-center">
+            <Link to="/login" className="flex items-center">
               <img
                 src="/logo.svg"
                 alt="logo"
@@ -24,7 +24,7 @@ const Footer = () => {
               becomes the pulsating rhythm of your digital aspirations.
             </p>
             <div className="flex *:text-[#D3D0CE] items-center justify-center md:justify-start space-x-4 pt-4">
-              <Link to="#" className="hover:text-white">
+              <Link to="/login" className="hover:text-white">
                 <img
                   src="/icons/Linkedin.svg"
                   width={25}

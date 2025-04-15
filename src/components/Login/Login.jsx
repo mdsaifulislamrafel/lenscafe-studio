@@ -23,7 +23,7 @@ const Login = () => {
                 if (result?.user) {
                     toast.success('Successfully login!')
                     reset();
-                    navigate(location.state?.pathname || "/");
+                    navigate(location.state?.pathname || "/dashboard");
                 }
             })
             .catch(error => {

@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 // import { toast } from "react-toastify";
 // import sendEmail from "./sendEmail"; // বাস্তব প্রজেক্টে এটা ইমপোর্ট করো যদি তুমি আলাদা ফাইল বানাও
 
@@ -13,15 +14,33 @@ const Form = () => {
   const onSubmit = (data) => {
     // এখানে তোমার sendEmail ফাংশন বসাও
     // sendEmail(data);
-    console.log(data); // শুধু দেখানোর জন্য
-    // toast.success("Your message has been sent successfully..!");
+    fetch("http://localhost:5000/fromData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.insertedId) {
+          toast.success("Your message has been sent successfully..!");
+        }
+      })
+      .catch(() => {
+        toast.error("Something went wrong. Please try again.");
+      });
+  
     reset();
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-700"
+        >
           You Name*
         </label>
         <input
@@ -31,11 +50,16 @@ const Form = () => {
           {...register("name", { required: true })}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#FA7E30] focus:border-[#FA7E30]"
         />
-        {errors.name && <p className="text-red-500 text-sm">Name is required</p>}
+        {errors.name && (
+          <p className="text-red-500 text-sm">Name is required</p>
+        )}
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700"
+        >
           Email*
         </label>
         <input
@@ -45,11 +69,16 @@ const Form = () => {
           {...register("email", { required: true })}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#FA7E30] focus:border-[#FA7E30]"
         />
-        {errors.email && <p className="text-red-500 text-sm">Email is required</p>}
+        {errors.email && (
+          <p className="text-red-500 text-sm">Email is required</p>
+        )}
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="phone"
+          className="block text-sm font-medium text-gray-700"
+        >
           Phone*
         </label>
         <input
@@ -59,11 +88,16 @@ const Form = () => {
           {...register("phone", { required: true })}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#FA7E30] focus:border-[#FA7E30]"
         />
-        {errors.phone && <p className="text-red-500 text-sm">Phone number is required</p>}
+        {errors.phone && (
+          <p className="text-red-500 text-sm">Phone number is required</p>
+        )}
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-700"
+        >
           Message (Optional)
         </label>
         <textarea

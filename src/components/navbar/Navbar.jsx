@@ -1,7 +1,8 @@
 import { AlignJustify } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import MobileNavigation from "../Mobile-navigation";
 import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -15,6 +16,7 @@ const Navbar = () => {
   const [openMobileNav, setOpenMobileNav] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,14 +40,11 @@ const Navbar = () => {
       <nav className="flex justify-between items-center container mx-auto px-4 h-20">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          {/* <img
+          <img
             src="/logo.svg"
             alt="logo"
-            width={40}
-            height={40}
-            className="w-auto h-10"
-          /> */}
-          <img src="/public/logo.svg" alt="logo" className="w-[90px] h-[90px]" />
+            className="w-[90px] h-[90px]"
+          />
         </Link>
 
         {/* Navigation Links */}
@@ -65,21 +64,27 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Contact button */}
+        {/* Contact or Dashboard button */}
         <div className="hidden md:flex items-center">
-          <Link to="/contact-us">
-            <div className="flex items-center rounded-md button_gradeint p-[1px] overflow-hidden">
-              <button className="bg-[#2C202F] transition-all hover:button_gradeint duration-500 w-full h-full text-white rounded-md px-4 py-2">
+          {user ? (
+            <Link to="/dashboard">
+              <button className="bg-[#2C202F] transition-all hover:button_gradeint duration-500 text-white rounded-md px-4 py-2">
+                Dashboard
+              </button>
+            </Link>
+          ) : (
+            <Link to="/contact-us">
+              <button className="bg-[#2C202F] transition-all hover:button_gradeint duration-500 text-white rounded-md px-4 py-2">
                 Contact Us
               </button>
-            </div>
-          </Link>
+            </Link>
+          )}
         </div>
 
         {/* Mobile Menu Toggle */}
         <div
           onClick={() => setOpenMobileNav(!openMobileNav)}
-          className="block md:hidden text-white"
+          className="block md:hidden text-white cursor-pointer"
         >
           <AlignJustify />
         </div>
